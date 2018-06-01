@@ -24,6 +24,7 @@ public class TestTCP2 {
 			os = socket.getOutputStream();
 			os.write("我是客户端".getBytes());
 			// 显示告诉服务端我已经发送完毕
+			// os.close()会导致客户端socket关闭
 			socket.shutdownOutput();
 			is = socket.getInputStream();
 			byte[] b = new byte[20];
