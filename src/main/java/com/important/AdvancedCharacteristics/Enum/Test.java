@@ -1,4 +1,4 @@
-package com.important.Enum;
+package com.important.AdvancedCharacteristics.Enum;
 
 public class Test {
 	public static void main(String[] args) {

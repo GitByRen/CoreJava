@@ -1,4 +1,4 @@
-package com.important.Annotation;
+package com.important.AdvancedCharacteristics.Annotation;
 
 import java.util.ArrayList;
 import java.util.List;

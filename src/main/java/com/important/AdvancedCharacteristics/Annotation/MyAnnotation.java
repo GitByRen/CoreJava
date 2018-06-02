@@ -1,4 +1,4 @@
-package com.important.Annotation;
+package com.important.AdvancedCharacteristics.Annotation;
 
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
 import static java.lang.annotation.ElementType.FIELD;

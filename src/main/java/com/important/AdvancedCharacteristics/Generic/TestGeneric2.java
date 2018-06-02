@@ -1,4 +1,4 @@
-package com.important.Generic;
+package com.important.AdvancedCharacteristics.Generic;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.important.Inner;
+package com.important.AdvancedCharacteristics.Inner;
 
 public class InnerTest {
 	public static void main(String[] args) {

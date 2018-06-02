@@ -1,4 +1,4 @@
-package com.important.Enum;
+package com.important.AdvancedCharacteristics.Enum;
 
 /**
  * 枚举类：一个类的对象是有限而且固定的
