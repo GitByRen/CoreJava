@@ -111,7 +111,7 @@ public class TestFileInputOutputStream {
 			// 3.实现文件复制
 			byte[] b = new byte[5];
 			int len = 0;
-			// fow.write()也能写入但是会多字节
+			// fos.write()也能写入但是会多字节
 			while ((len = fis.read(b)) != -1) {
 				fos.write(b, 0, len);
 			}
