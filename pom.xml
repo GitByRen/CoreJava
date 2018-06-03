@@ -8,6 +8,7 @@
 
 	<properties>
 		<com.important.junit>4.12</com.important.junit>
+		<com.important.mysql>5.1.46</com.important.mysql>
 	</properties>
 
 	<dependencies>
@@ -16,6 +17,11 @@
 			<artifactId>junit</artifactId>
 			<version>${com.important.junit}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${com.important.mysql}</version>
 		</dependency>
 	</dependencies>
 

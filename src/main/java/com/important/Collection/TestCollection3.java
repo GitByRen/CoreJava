@@ -41,6 +41,7 @@ public class TestCollection3 {
 //		for (String key : map.keySet()) {
 //		    value = map.get(key);
 //		}
+		// map没有泛型则报错
 //		for (Entry<String, String> entry: map.entrySet()) {  
 //		    key = entry.getKey();  
 //		    value = entry.getValue();  
