@@ -11,7 +11,7 @@ import com.mysql.jdbc.Driver;
 public class JDBCTest {
 
 	/**
-	 * Driver是一个接口：数据库厂商必须提供实现的接口，能从其中获取数据库连接。
+	 * java.sql.Driver是一个接口：数据库厂商必须提供实现了接口的类com.mysql.jdbc.Driver，能从其中获取数据库连接。
 	 * @throws SQLException 
 	 */
 	@Test
@@ -25,4 +25,12 @@ public class JDBCTest {
 		System.out.println(connect);
 	}
 
+	@Test
+	public void test() {
+	    try {
+            Driver driver = (Driver) Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
 }

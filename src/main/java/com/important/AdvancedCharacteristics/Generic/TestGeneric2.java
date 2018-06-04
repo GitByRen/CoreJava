@@ -24,26 +24,6 @@ public class TestGeneric2 {
         List<? super Apple> list4 = new ArrayList<Apple>();
         List<? super Apple> list5 = new ArrayList<Fruit>();
         List<? super Apple> list6 = new ArrayList<Object>();
-        
-        //不能创建一个确切的泛型类型的数组,而使用通配符创建泛型数组是可以的
-        List<?>[] ls = new ArrayList<?>[10];
-        List<String>[] list=new ArrayList[10];
-        
-        //下面的代码使用了泛型的数组，是无法通过编译的
-      /*GenTest<String> genArr[] = new GenTest<String>[2];
-        Object[] test = genArr;
-        GenTest<StringBuffer> strBuf = new GenTest<StringBuffer>();
-        strBuf.setValue(new StringBuffer());
-        test[0] = strBuf;
-        GenTest<String> ref = genArr[0]; //上面两行相当于使用数组移花接木，让Java编译器把GenTest<StringBuffer>当作了GenTest<String>
-        String value = ref.getValue(); // 这里是重点！*/
-        
-//        List<String>[] stringLists=new List<String>[1];
-//        List<Integer> intList = Arrays.asList(40);
-//        Object[] objects = stringLists;
-//        objects[0]=intList;
-//        String s=stringLists[0].get(0);
-        
     }
 
     public static <T> void copy(List<? super T> dest, List<? extends T> src) {
