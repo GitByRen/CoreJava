@@ -23,16 +23,16 @@ public class GenerializedErasure {
 
     @Test
     public void test2() {
-        // 不能创建一个确切的泛型类型的数组,而使用通配符创建泛型数组是可以的
+        // 不能创建一个确切的泛型类型的数组,而使用通配符创建泛型数组是可以的，因为没有编译时的类型检查，需要开发者自己保证类型转换安全。
         List<?>[] ls = new ArrayList<?>[10];
-        List<String>[] list = new ArrayList[10];
-
-		// 假设我们支持泛型数组的创建，由于运行时期类型信息已经被擦除，JVM实际上根本就不知道new ArrayList<String>()和
-		// new ArrayList<Integer>()的区别。类似这样的错误假如出现才实际的应用场景中，将非常难以察觉
-//        Object[] stringLists = new List<String>[];
-//        stringLists[0] = new ArrayList<String>();
-          //An ArrayStoreException should be thrown, but the runtime can't detect it.
-//        stringLists[1] = new ArrayList<Integer>();
+        List[] list = new ArrayList[10];
+        
+        //如果允许创建泛型数组，这样就绕过了"泛型的编译时的类型检查"
+//        List<String>[] stringLists=new List<String>[1];
+//        List<Integer> intList = Arrays.asList(40);
+//        Object[] objects = stringLists;
+//        objects[0]=intList;
+//        String s=stringLists[0].get(0);
     }
 
     // 我们无法对泛型代码直接使用instanceof关键字，因为Java编译器在生成代码的时候会擦除所有相关泛型的类型信息

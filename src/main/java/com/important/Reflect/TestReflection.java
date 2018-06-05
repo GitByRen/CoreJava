@@ -38,7 +38,7 @@ public class TestReflection {
 
 		// 读取文件
 		ClassLoader loader = this.getClass().getClassLoader();
-		InputStream resourceAsStream = loader.getResourceAsStream("com/yonyou/Reflect/jdbc.properties");
+		InputStream resourceAsStream = loader.getResourceAsStream("com/important/Reflect/jdbc.properties");
 		try {
 			// FileInputStream读取的相对路径针对的是项目根目录的
 			// FileInputStream fis = new FileInputStream("src/com/yonyou/Reflect/jdbc.properties");
