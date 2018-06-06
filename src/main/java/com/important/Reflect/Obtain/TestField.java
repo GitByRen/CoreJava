@@ -32,7 +32,7 @@ public class TestField {
 	 * 权限修饰符 变量类型 变量名
 	 */
 	@Test
-	public void test2() {
+	public void test2() throws Exception {
 		Class clazz = Person.class;
 		Field[] declaredFields = clazz.getDeclaredFields();
 		for (Field field : declaredFields) {
@@ -45,6 +45,9 @@ public class TestField {
 			System.out.print(type.getName() + " ");
 			// 3.获取属性名
 			System.out.println(field.getName());
+			// 4.获取值
+			field.setAccessible(true);
+			System.out.println(field.get(new Person()));
 		}
 	}
 

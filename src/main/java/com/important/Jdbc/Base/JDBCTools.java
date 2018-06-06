@@ -1,4 +1,4 @@
-package com.important.Jdbc.Driver;
+package com.important.Jdbc.Base;
 
 import java.io.InputStream;
 import java.sql.Connection;

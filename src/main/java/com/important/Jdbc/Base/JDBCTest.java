@@ -1,4 +1,4 @@
-package com.important.Jdbc.Driver;
+package com.important.Jdbc.Base;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -182,7 +182,7 @@ public class JDBCTest {
 	 * 以面向对象的思想编写JDBC程序
 	 */
 	public void addNewUser(User user) {
-		String sql = "INSERT INTO user values(null,'" + user.getUserName() + "','" + user.getPassword() + "',"
+		String sql = "INSERT INTO user values(null,'" + user.getUsername() + "','" + user.getPassword() + "',"
 				+ user.getAge() + "," + user.getSex() + ")";
 		System.out.println(sql);
 		update(sql);
@@ -191,7 +191,7 @@ public class JDBCTest {
 	public void addNewUser1(User user) {
 		String sql = "insert into user values(null,?,?,?,?,?)";
 		System.out.println(sql);
-		JDBCTools.updates(sql, user.getUserName(), user.getPassword(), user.getAge() ,user.getSex(), user.getBirth());
+		JDBCTools.updates(sql, user.getUsername(), user.getPassword(), user.getAge() ,user.getSex(), user.getBirth());
 	}
 
 	@Test
@@ -199,7 +199,7 @@ public class JDBCTest {
 		Scanner sc = new Scanner(System.in);
 		User user = new User();
 		System.out.println("username:");
-		user.setUserName(sc.next());
+		user.setUsername(sc.next());
 		System.out.println("password:");
 		user.setPassword(sc.next());
 		System.out.println("age:");
@@ -230,7 +230,7 @@ public class JDBCTest {
 	 * 方法：
 	 * > int getColumnCount()：SQL语句中包含哪些列
 	 * > String getColumnLabel(int column)：获取指定的列的别名，其中索引从1开始
-	 * > String getColumnLabel(int column)：获取表的原始的列名
+	 * > String getColumnName(int column)：获取表的原始的列名
 	 */
 	public <T> T getT(Class<T> clazz,String sql,Object ... args){
 		T entity = null;

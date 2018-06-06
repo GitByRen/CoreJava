@@ -9,6 +9,7 @@
 	<properties>
 		<com.important.junit>4.12</com.important.junit>
 		<com.important.mysql>5.1.46</com.important.mysql>
+		<com.important.beanutils>1.9.3</com.important.beanutils>
 	</properties>
 
 	<dependencies>
@@ -22,6 +23,11 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${com.important.mysql}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${com.important.beanutils}</version>
 		</dependency>
 	</dependencies>
 

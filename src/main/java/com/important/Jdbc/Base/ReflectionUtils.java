@@ -1,4 +1,4 @@
-package com.important.Jdbc.Driver;
+package com.important.Jdbc.Base;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -67,7 +67,6 @@ public class ReflectionUtils {
 		
 		for(Class<?> superClass = object.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()){
 			try {
-				//superClass.getMethod(methodName, parameterTypes);
 				return superClass.getDeclaredMethod(methodName, parameterTypes);
 			} catch (NoSuchMethodException e) {
 				//Method 不在当前类定义, 继续向上转型
