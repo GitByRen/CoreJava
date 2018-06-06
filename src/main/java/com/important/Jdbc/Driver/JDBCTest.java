@@ -214,7 +214,9 @@ public class JDBCTest {
 	}
 	
 	
-	
+	/**
+	 * 根据sql返回实体类对象（或者Map）
+	 */
 	@Test
 	public void testGet() {
 		String sql = "select id,username,password,age,sex,birth from user where id = ?";
@@ -228,6 +230,7 @@ public class JDBCTest {
 	 * 方法：
 	 * > int getColumnCount()：SQL语句中包含哪些列
 	 * > String getColumnLabel(int column)：获取指定的列的别名，其中索引从1开始
+	 * > String getColumnLabel(int column)：获取表的原始的列名
 	 */
 	public <T> T getT(Class<T> clazz,String sql,Object ... args){
 		T entity = null;
@@ -250,7 +253,7 @@ public class JDBCTest {
 			Map<String, Object> maps = new HashMap<String, Object>();
 
 			// 4.处理ResultSet
-			while (rs.next()) {
+			if (rs.next()) {
 				for (int i = 0; i < rsmd.getColumnCount(); i++) {
 					String columnLabel = rsmd.getColumnLabel(i + 1);
 					Object columnValue = rs.getObject(columnLabel);
