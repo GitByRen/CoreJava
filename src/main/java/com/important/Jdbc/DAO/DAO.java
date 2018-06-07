@@ -16,7 +16,20 @@ import com.important.Jdbc.Base.JDBCTools;
 public class DAO {
 
 	public void update(String sql, Object... args) {
-
+		Connection connection = null;
+		PreparedStatement stmt = null;
+		try {
+			connection = JDBCTools.getConnection();
+			stmt = connection.prepareStatement(sql);
+			for (int i = 0; i < args.length; i++) {
+				stmt.setObject(i + 1, args[i]);
+			}
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTools.releaseConnection(connection, stmt);
+		}
 	}
 
 	public <T> T get(Class<T> clazz, String sql, Object... args) {
