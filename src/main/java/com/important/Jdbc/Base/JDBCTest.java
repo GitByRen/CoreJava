@@ -37,8 +37,10 @@ public class JDBCTest {
 	}
 
 	/**
-	 * DriverManager 1). 通过重载的getConnection()方法获取数据库连接，较为方便 2). 可以同时管理多个驱动程序 3).
-	 * 给getConnection传入参数时，通过url连接不同的数据库
+	 * DriverManager
+	 * 1). 通过重载的getConnection()方法获取数据库连接，较为方便
+	 * 2). 可以同时管理多个驱动程序
+	 * 3). 给getConnection传入参数时，通过url连接不同的数据库
 	 */
 	@Test
 	public void testDriverManager() {
@@ -64,7 +66,8 @@ public class JDBCTest {
 	}
 
 	/**
-	 * 1.Statement用于执行SQL语句的对象 1). 通过Connection的createStatement获取
+	 * 1.Statement用于执行SQL语句的对象 
+	 * 1).通过Connection的createStatement获取
 	 * 2).通过executeUpdate(sql)可以执行SQL语句
 	 * 
 	 * 2.Connection、Statement都是应用程序和数据库的连接资源，使用后要关闭
@@ -150,7 +153,8 @@ public class JDBCTest {
 	}
 
 	/**
-	 * ResultSet：结果集，封装了使用JDBC进行查询的结果. 1.ResultSet返回的实际上就是一张数据表，有一个指针指向数据表的第一行的前面
+	 * ResultSet：结果集，封装了使用JDBC进行查询的结果. 
+	 * 1.ResultSet返回的实际上就是一张数据表，有一个指针指向数据表的第一行的前面
 	 * 2.通过getXxx(index)或getXxx(columnName)获取每一列的值
 	 */
 	@Test
