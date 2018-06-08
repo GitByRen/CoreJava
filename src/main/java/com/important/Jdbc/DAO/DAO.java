@@ -28,7 +28,7 @@ public class DAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			JDBCTools.releaseConnection(connection, stmt);
+			JDBCTools.releaseConnections(connection, stmt, null);
 		}
 	}
 

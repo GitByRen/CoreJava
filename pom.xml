@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.important</groupId>
@@ -10,6 +9,8 @@
 		<com.important.junit>4.12</com.important.junit>
 		<com.important.mysql>5.1.46</com.important.mysql>
 		<com.important.beanutils>1.9.3</com.important.beanutils>
+		<com.important.dbcp>2.2.0</com.important.dbcp>
+		<com.important.c3p0>0.9.5.2</com.important.c3p0>
 	</properties>
 
 	<dependencies>
@@ -29,6 +30,17 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>${com.important.beanutils}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${com.important.dbcp}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${com.important.c3p0}</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

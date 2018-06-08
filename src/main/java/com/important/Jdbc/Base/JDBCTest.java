@@ -148,7 +148,7 @@ public class JDBCTest {
 			e.printStackTrace();
 		} finally {
 			// 4.关闭连接
-			JDBCTools.releaseConnection(connection, stmt);
+			JDBCTools.releaseConnections(connection, stmt, null);
 		}
 	}
 
