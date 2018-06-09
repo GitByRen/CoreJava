@@ -80,5 +80,15 @@ public class JDBCTest3 {
         DataSource dataSource = new ComboPooledDataSource("helloc3p0");
         System.out.println(dataSource);
     }
+    
+    @Test
+    public void testJDBCTools() {
+		try {
+			Connection connection = JDBCTools.getConnection();
+			System.out.println(connection);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
 
 }

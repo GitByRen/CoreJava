@@ -1,13 +1,14 @@
 package com.important.Jdbc.Base;
 
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class JDBCTools {
 
@@ -45,7 +46,7 @@ public class JDBCTools {
     }
 
     /**
-     * 关闭资源
+     * 关闭资源：数据库连接池的Connection对象进行close时，并不是真的进行关闭，而是把数据库连接归还到数据库连接池
      */
     public static void releaseConnections(Connection conn, Statement stmt, ResultSet rs) {
         if (rs != null) {
@@ -73,24 +74,17 @@ public class JDBCTools {
         }
     }
 
+    private static DataSource dataSource = null;
+    
+    static {
+    	dataSource = new ComboPooledDataSource("helloc3p0");
+    }
+    
     /**
      * 获取连接
      */
     public static Connection getConnection() throws Exception {
-        String driverClass = null;
-        String jdbcUrl = null;
-        String user = null;
-        String password = null;
-        InputStream resourceAsStream = JDBCTools.class.getClassLoader().getResourceAsStream("jdbc.properties");
-        Properties info = new Properties();
-        info.load(resourceAsStream);
-        driverClass = info.getProperty("driver");
-        jdbcUrl = info.getProperty("jdbcUrl");
-        user = info.getProperty("user");
-        password = info.getProperty("password");
-        Class.forName(driverClass);
-        Connection conn = DriverManager.getConnection(jdbcUrl, user, password);
-        return conn;
+        return dataSource.getConnection();
     }
 
     /**
