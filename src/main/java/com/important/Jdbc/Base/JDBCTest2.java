@@ -96,7 +96,8 @@ public class JDBCTest2 {
     }
 
     /**
-     * 事务 如果多个操作，每个操作使用的是单独的连接，无法保证事务，必须是一个连接 conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+     * 事务 如果多个操作，每个操作使用的是单独的连接，无法保证事务，必须是一个连接 
+     * conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
      */
     @Test
     public void testTransaction() {

@@ -15,8 +15,9 @@ public interface DAO<T> {
 	 * @param conn:数据库连接
 	 * @param sql:SQL语句
 	 * @param args:填充占位符的可变参数
+	 * @throws SQLException 
 	 */
-	void update(Connection conn, String sql, Object... args);
+	void update(Connection conn, String sql, Object... args) throws SQLException;
 
 	/**
 	 * 返回一个T的对象
@@ -27,7 +28,7 @@ public interface DAO<T> {
 	 * @return
 	 * @throws SQLException
 	 */
-	T get(Connection conn, String sql, Object... args) throws SQLException;
+	T getSingleBean(Connection conn, String sql, Object... args) throws SQLException;
 
 	/**
 	 * 返回T的一个集合
@@ -36,8 +37,9 @@ public interface DAO<T> {
 	 * @param sql
 	 * @param args
 	 * @return
+	 * @throws SQLException 
 	 */
-	List<T> getForList(Connection conn, String sql, Object... args);
+	List<T> getBeanForList(Connection conn, String sql, Object... args) throws SQLException;
 
 	/**
 	 * 返回具体的一个值
@@ -46,8 +48,9 @@ public interface DAO<T> {
 	 * @param sql
 	 * @param args
 	 * @return
+	 * @throws SQLException 
 	 */
-	<E> E getForValue(Connection conn, String sql, Object... args);
+	<E> E getForValue(Connection conn, String sql, Object... args) throws SQLException;
 
 	/**
 	 * 批量处理
@@ -55,6 +58,8 @@ public interface DAO<T> {
 	 * @param conn
 	 * @param sql
 	 * @param args:填充占位符的Object[]类型的可变参数.
+	 * @throws SQLException 
 	 */
-	void batch(Connection conn, String sql, Object... args);
+	void batch(Connection conn, String sql, Object[][] args) throws SQLException;
+
 }

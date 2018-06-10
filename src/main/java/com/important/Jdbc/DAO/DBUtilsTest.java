@@ -77,6 +77,7 @@ public class DBUtilsTest {
 
 	/**
 	 * BeanHandler：把结果集的第一条记录转为创建BeanHandler对象时传入的Class参数对应的对象
+	 * 查询的列名要和set()和get()名一样
 	 */
 	@Test
 	public void testBeanHandler() {
@@ -113,14 +114,14 @@ public class DBUtilsTest {
 
 	/**
 	 * MapHandler：返回SQL对应的第一条记录的Map对象
-	 * 键：sql查询的列名（不是别名） 值：列值
+	 * 键：sql查询的别名或列名  值：列值
 	 */
 	@Test
 	public void testMapHandler() {
 		Connection conn = null;
 		try {
 			conn = JDBCTools.getConnection();
-			String sql = "select id,username,password,age,sex,birth from user";
+			String sql = "select id,username name,password,age,sex,birth from user";
 			Map<String, Object> query = queryRunner.query(conn, sql, new MapHandler());
 			System.out.println(query);
 		} catch (Exception e) {
