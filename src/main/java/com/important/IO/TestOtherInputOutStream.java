@@ -101,7 +101,7 @@ public class TestOtherInputOutStream {
 }
 
 /**
- * 1.要求此列是可序列化的，实现Serializable接口 
+ * 1.要求此类是可序列化的，实现Serializable接口 
  * 2.要求类的属性同样的要实现Serializable接口 
  * 3.提供一个版本号
  */
