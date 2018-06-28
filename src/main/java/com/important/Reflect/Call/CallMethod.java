@@ -19,7 +19,7 @@ public class CallMethod {
 		try {
 			String strs = "com.important.Reflect.Call.CallMethod";
 			Method method = Class.forName(strs).getMethod("main", String[].class);
-			// 如果给可变参数传递数组，则可变参数的个数为数组的长度
+			// 如果给可变参数传递数组，则可变参数的个数为数组的长度，因为invoke方法有可变参数
 			method.invoke(null, new Object[] { new String[] { "1", "bv" } });
 		} catch (Exception e) {
 			e.printStackTrace();
