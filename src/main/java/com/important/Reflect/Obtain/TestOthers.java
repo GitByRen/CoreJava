@@ -37,7 +37,11 @@ public class TestOthers {
     public void test3() {
         Class clazz = Person.class;
         Type type1 = clazz.getGenericSuperclass();
+        // ParameterizedType是一个接口，这个类可以用来检验泛型是否被参数化
+//        if(type1 instanceof ParameterizedType) {
+//        }
         ParameterizedType param = (ParameterizedType) type1;
+        // 获取泛型参数
         Type[] actualTypeArguments = param.getActualTypeArguments();
         for (Type type : actualTypeArguments) {
             System.out.println(type.getTypeName());
