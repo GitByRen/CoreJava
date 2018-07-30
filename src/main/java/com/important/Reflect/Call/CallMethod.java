@@ -43,9 +43,10 @@ public class CallMethod {
 		Object invoke = method2.invoke(p);
 		System.out.println(invoke);
 
-		// 静态方法调用
+		// 静态方法调用 
+		// If the underlying method is static, then the specified argument is ignored. It may be null.
 		Method method3 = clazz.getMethod("info");
-		method3.invoke(Person.class);
+		method3.invoke(null);
 
 		// getDeclaredMethod(String methodName,Class ... params):获取运行时类中指定的方法
 		Method method4 = clazz.getDeclaredMethod("display", String.class, Integer.class);
