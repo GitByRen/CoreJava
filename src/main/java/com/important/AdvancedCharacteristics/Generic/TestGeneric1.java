@@ -11,7 +11,7 @@ public class TestGeneric1 {
 	public static void main(String[] args) {
 		/*
 		 *  泛型与继承的关系
-		 *  若类A是类B的子类，那么List<A>就不是List<B>的子接口
+		 *  若类A是类B的子类，那么List<A>就不是List<B>的子类
 		 */
 		Object obj = null;
 		String str = "AA";
