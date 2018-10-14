@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import org.junit.Test;
 
 /**
- * Labbda
+ * Lambda
  */
 public class TestLambda {
 
@@ -75,19 +75,6 @@ public class TestLambda {
 		// 若 Lambda 体中只有一条语句， return 和 大括号都可以省略不写
 		Comparator<Integer> comparator2 = (x, y) -> Integer.compare(x, y);
 		System.out.println(comparator2.compare(5, 8));
-	}
-
-	/**
-	 * 自定义接口
-	 */
-	@Test
-	public void test4() {
-		Integer operation = operation(100, (e) -> e + 20);
-		System.out.println(operation);
-	}
-	
-	public Integer operation(Integer num, MyFun my) {
-		return my.getValue(num);
 	}
 
 }
