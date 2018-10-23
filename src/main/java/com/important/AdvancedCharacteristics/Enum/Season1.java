@@ -11,6 +11,9 @@ public class Season1 {
 		Seasons spring = Seasons.SPRING;
 		summer.show();
 		spring.show();
+		
+		System.out.println(spring.getName());
+		System.out.println(spring.getDesc());
 	}
 }
 

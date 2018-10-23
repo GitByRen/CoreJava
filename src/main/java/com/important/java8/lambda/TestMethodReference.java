@@ -66,8 +66,11 @@ public class TestMethodReference {
 	@Test
 	public void test4() {
 		BiPredicate<String, String> bp = (x, y) -> x.equals(y);
-		
 		BiPredicate<String, String> bp2 = String::equals;
+		
+		Function<Employee, String> fun = Employee::getName;
+		String apply = fun.apply(new Employee("呵呵"));
+		System.out.println(apply);
 	}
 	
 	
