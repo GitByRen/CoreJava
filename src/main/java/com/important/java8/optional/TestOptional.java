@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.junit.Test;
 
 import com.important.java8.lambda.Employee;
-import com.important.java8.lambda.Employee.Status;
 
 public class TestOptional {
 
@@ -17,9 +16,19 @@ public class TestOptional {
      *  isPresent() : 判断是否包含值
      *  orElse(T t) :  如果调用对象包含值，返回该值，否则返回t
      *  orElseGet(Supplier s) :如果调用对象包含值，返回该值，否则返回 s 获取的值
-     *  map(Function f): 如果有值对其处理，并返回处理后的Optional，否则返回 Optional.empty()
+     *  map(Function f): 如果有值则对其处理，并返回处理后的Optional，否则返回 Optional.empty()
      *  flatMap(Function mapper):与 map 类似，要求返回值必须是Optional
      */
+	@Test
+	public void test4() {
+		Optional<Employee> op = Optional.ofNullable(new Employee("张三", 18));
+		Optional<String> map = op.map((e) -> e.getName());
+		System.out.println(map.get());
+		
+		Optional<String> flatMap = op.flatMap((e) -> Optional.of(e.getName()));
+		System.out.println(flatMap);
+	}
+	
     @Test
     public void test3() {
         Optional<Employee> op = Optional.ofNullable(new Employee());
