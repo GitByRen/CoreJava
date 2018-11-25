@@ -13,6 +13,7 @@
 		<com.important.dbcp>2.2.0</com.important.dbcp>
 		<com.important.c3p0>0.9.5.2</com.important.c3p0>
 		<com.important.dbutils>1.7</com.important.dbutils>
+		<com.important.jedis>2.9.0</com.important.jedis>
 	</properties>
 
 	<dependencies>
@@ -47,6 +48,12 @@
 			<artifactId>commons-dbutils</artifactId>
 			<version>${com.important.dbutils}</version>
 		</dependency>
+		
+	<dependency>
+	    <groupId>redis.clients</groupId>
+	    <artifactId>jedis</artifactId>
+	    <version>${com.important.jedis}</version>
+	</dependency>
 	</dependencies>
 
 </project>
