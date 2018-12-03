@@ -38,6 +38,14 @@ public class StreamMapping {
             .map(Employee::getName)
             .forEach(System.out::println);
         
+//        emps.stream()
+//        	.map(new Function<Employee, String>() {
+//				@Override
+//				public String apply(Employee t) {
+//					return t.getName();
+//				}
+//			}).forEach(System.out::println);
+        
         System.out.println("***************************");
         
         // {{a, a, a}, {b, b, b}}
