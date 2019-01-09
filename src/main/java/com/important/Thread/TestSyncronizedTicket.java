@@ -8,6 +8,9 @@ package com.important.Thread;
  * 
  * 零长度的byte数组对象创建起来将比任何对象都经济――查看编译后的字节码：生成零长度的byte[]对象只需3行操作码，
  * 而Object lock = new Object()则需要7行操作码。
+ * 
+ * 无论synchronized关键字加在方法上还是对象上，如果它作用的对象是非静态的，则它取得的锁是对象；
+ * 如果synchronized作用的对象是一个静态方法或一个类，则它取得的锁是对类，该类所有的对象同一把锁。
  */
 public class TestSyncronizedTicket {
 
@@ -30,7 +33,7 @@ public class TestSyncronizedTicket {
 class SafeWindow implements Runnable {
 	int ticket = 100;
 	// 任何一个类的对象都可以充当锁的对象
-	Object o = new Object();
+	byte[] o = new byte[0];
 	
 	@Override
 	public void run() {

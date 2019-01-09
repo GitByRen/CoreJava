@@ -9,13 +9,13 @@ package com.important.Thread;
  * 6.yield()：调用此方法的线程释放当前CPU的执行权，实际中无法保证yield()达到让步目的
  * 7.join()：在A线程中调用B线程的join()方法，A线程停止，直到B线程执行完毕
  * 8.isAlive()：判断当前线程是否存活
- * 9.sleep(long l)：显示的让当前线程睡眠l毫秒
+ * 9.sleep(long l)：显式的让当前线程睡眠l毫秒
  * 10.线程通信：wait() notify() notifyAll()
  * 11.setPriority(int newPriority)：改变线程的优先级
  *    getPriority()：返回线程优先级
  * 
  * sleep 方法允许较低优先级的线程获得运行机会，但 yield()方法执行时，
- * 当前线程仍处在可运行状态，所以，不可能让出较低优先级的线程些时获得 CPU 占有权。
+ * 当前线程仍处在可运行状态，所以，不可能让出较低优先级的线程获得 CPU 占有权。
  */
 public class TestThreadMethod {
 	public static void main(String[] args) {
