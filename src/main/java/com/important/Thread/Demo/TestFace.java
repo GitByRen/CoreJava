@@ -9,6 +9,7 @@ public class TestFace {
 		Object a = new Object();
 		Object b = new Object();
 		Object c = new Object();
+		
 		Print p1 = new Print("A", c, a);
 		Print p2 = new Print("B", a, b);
 		Print p3 = new Print("C", b, c);
@@ -46,6 +47,7 @@ class Print implements Runnable {
 				synchronized (self) {
 					System.out.print(name);
 					x--;
+					// 如果直接notify或者wait()，相当于this调用，而在这里this指的是p1，p2，p3，这三个对象并没有加锁，所以报错
 					self.notify();
 				}
 				try {

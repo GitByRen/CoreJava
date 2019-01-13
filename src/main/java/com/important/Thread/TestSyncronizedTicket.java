@@ -16,7 +16,7 @@ public class TestSyncronizedTicket {
 
 	public static void main(String[] args) {
 		SafeWindow w = new SafeWindow();
-//		Window2 w2 = new Window2();
+//		Window2 w = new Window2();
 		Thread t1 = new Thread(w);
 		Thread t2 = new Thread(w);
 		Thread t3 = new Thread(w);
@@ -67,7 +67,8 @@ class Window2 implements Runnable {
 			if(ticket == 0) {
 				break;
 			}
-			show();
+			System.out.println(this);
+			this.show();
 		}
 	}
 
