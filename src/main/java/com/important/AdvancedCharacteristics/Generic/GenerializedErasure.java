@@ -27,12 +27,11 @@ public class GenerializedErasure {
         List<?>[] ls = new ArrayList<?>[10];
         List[] list = new ArrayList[10];
         
-        //如果允许创建泛型数组
-//        List<String>[] stringLists=new List<String>[1];
-//        List<Integer> intList = Arrays.asList(40);
-//        Object[] objects = stringLists;
-//        objects[0]=intList;  这样就绕过了"泛型的编译时的类型检查"
-//        String s=stringLists[0].get(0);  这就会报错
+      //如果允许创建泛型数组
+//      Object[] stringLists = new List<String>[];  // compiler error, but pretend it's allowed
+//      stringLists[0] = new ArrayList<String>();   // OK
+//      An ArrayStoreException should be thrown, but the runtime can't detect it.
+//      stringLists[1] = new ArrayList<Integer>();
     }
 
     // 我们无法对泛型代码直接使用instanceof关键字，因为Java编译器在生成代码的时候会擦除所有相关泛型的类型信息
