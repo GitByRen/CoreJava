@@ -127,11 +127,11 @@ class Person implements Serializable {
 
 }
 
-class Pet implements Serializable{
+class Pet implements Serializable {
 	String name;
 
 	public Pet(String name) {
-		this.name = name; 
+		this.name = name;
 	}
 
 	@Override

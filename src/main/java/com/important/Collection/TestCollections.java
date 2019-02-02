@@ -36,7 +36,7 @@ public class TestCollections {
 		int count = Collections.frequency(list, 456);  //返回指定集合中指定元素的出现次数
 		System.out.println(count);
 		
-//		List list1 = new ArrayList();  //错误的实现方式 因为长度为0，故报错，必须长度一样
+//		List list1 = new ArrayList();  // 错误的实现方式 因为长度为0，故报错，必须长度一样
 		List<Integer> list1 = Arrays.asList(1,2,3,4,5);
 		Collections.copy(list1, list);
 		System.out.println(list1);

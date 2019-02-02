@@ -6,24 +6,25 @@ public class Season1 {
 		for (int i = 0; i < s.length; i++) {
 			System.out.println(s[i]);
 		}
-		
+
 		Seasons summer = Seasons.SUMMER;
 		Seasons spring = Seasons.SPRING;
 		summer.show();
 		spring.show();
-		
+
 		System.out.println(spring.getName());
 		System.out.println(spring.getDesc());
 	}
 }
 
-interface Show{
+interface Show {
 	void show();
 }
+
 // 枚举类可以实现接口，也可以让不同的对象重写方法
-// enum Seasons是抽象类，SPRING相当与是Seasons的匿名子类
-enum Seasons implements Show{
-	SPRING("spring", "春暖花开"){
+// enum Seasons是抽象类，SPRING相当于是Seasons的匿名子类
+enum Seasons implements Show {
+	SPRING("spring", "春暖花开") {
 		public void show() {
 			System.out.println("牛逼");
 		}
@@ -78,6 +79,6 @@ enum Seasons implements Show{
 	public void show() {
 		System.out.println("这是一个季节!");
 	}
-	
+
 	public abstract String getX();
 }

@@ -24,7 +24,8 @@ public class TestCollection3 {
 	 *      |----HashTable
 	 * 			|----Properties：常用来处理属性文件
 	 * 
-	 * 1.key不可以重复,value可以重复 2.key使用set来存的，不可重复
+	 * 1.key不可以重复,value可以重复
+	 * 2.key使用set来存的，不可重复
 	 * 3.一个key-value对是一个Entry,所有的Entry是用Set来存放的，也是不可重复的。
 	 * 4.向HashMap中添加元素时，会调用key所在类的equals()方法，判断两个key是否相同， 若相同只能添加进后添加的那个元素。
 	 */
@@ -42,11 +43,11 @@ public class TestCollection3 {
 //		    value = map.get(key);
 //		}
 		// map没有泛型则报错
-//		for (Entry<String, String> entry: map.entrySet()) {  
-//		    key = entry.getKey();  
-//		    value = entry.getValue();  
+//		for (Entry<String, String> entry : map.entrySet()) {
+//		    key = entry.getKey();
+//		    value = entry.getValue();
 //		}
-//		for (String value : map.values()) {  
+//		for (String value : map.values()) {
 //		}
 		Iterator iterator = map.entrySet().iterator();
 		while (iterator.hasNext()) {
@@ -54,6 +55,10 @@ public class TestCollection3 {
 			System.out.println(entry.getKey());
 			System.out.println(entry.getValue());
 		}
+		
+		System.out.println("*******************************************");
+		
+		map.entrySet().stream().forEach(System.out::println);
 	}
 
 	@Test
@@ -75,7 +80,7 @@ public class TestCollection3 {
 		System.out.println("***************");
 
 		// 定制排序
-		Map<Customer,Integer> map1 = new TreeMap<Customer,Integer>(new Comparator<Object>() {
+		Map<Customer, Integer> map1 = new TreeMap<Customer, Integer>(new Comparator<Object>() {
 			@Override
 			public int compare(Object o1, Object o2) {
 				if (o1 instanceof Customer && o2 instanceof Customer) {

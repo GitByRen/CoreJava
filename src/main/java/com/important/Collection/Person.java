@@ -39,7 +39,7 @@ public class Person implements Comparable {
 			int i = this.age.compareTo(p.age);
 			if(i == 0) {
 				return this.name.compareTo(p.name);
-			}else {
+			} else {
 				return i;
 			}
 			// return this.name.compareTo(p.name);

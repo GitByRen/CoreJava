@@ -73,13 +73,13 @@ public class TestCollection2 {
 		 * 4.当Comparable比较方式和Comparator比较方式同时存在时，以Comparator的比较方式为主；
 		 */
 		Set set = new TreeSet<>();
-		set.add(new Person("BB",24));
-		set.add(new Person("EE",23));
-		set.add(new Person("FF",22));
-		set.add(new Person("KK",34));
-		set.add(new Person("AA",21));
-		set.add(new Person("AA",21));
-		set.add(new Person("AB",21));
+		set.add(new Person("BB", 24));
+		set.add(new Person("EE", 23));
+		set.add(new Person("FF", 22));
+		set.add(new Person("KK", 34));
+		set.add(new Person("AA", 21));
+		set.add(new Person("AA", 21));
+		set.add(new Person("AB", 21));
 		for (Object object : set) {
 			System.out.println(object);
 		}
@@ -115,8 +115,8 @@ public class TestCollection2 {
 		set.add(null);
 		set.add("AA");
 		set.add(456);
-		set.add(new Person("a",1));
-		set.add(new Person("a",1));
+		set.add(new Person("a", 1));
+		set.add(new Person("a", 1));
 		System.out.println(set);
 	}
 	
@@ -137,4 +137,5 @@ public class TestCollection2 {
 		System.out.println(list.indexOf(456));
 		System.out.println(list.subList(0, 1));
 	}
+
 }
