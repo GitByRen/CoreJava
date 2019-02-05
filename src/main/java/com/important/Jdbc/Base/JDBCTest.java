@@ -237,7 +237,7 @@ public class JDBCTest {
 	 * > String getColumnLabel(int column)：获取指定的列的别名，其中索引从1开始
 	 * > String getColumnName(int column)：获取表的原始的列名
 	 */
-	public <T> T getT(Class<T> clazz,String sql,Object ... args){
+	public <T> T getT(Class<T> clazz, String sql, Object... args) {
 		T entity = null;
 		Connection connection = null;
 		PreparedStatement stmt = null;
@@ -275,13 +275,14 @@ public class JDBCTest {
 					ReflectionUtils.setFieldValue(entity, fieldName, value);
 				}
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			// 4.关闭连接
 			JDBCTools.releaseConnections(connection, stmt, rs);
 		}
+		
 		return entity;
 	}
 	
