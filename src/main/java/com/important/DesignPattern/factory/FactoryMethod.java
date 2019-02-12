@@ -1,6 +1,9 @@
-package com.important.DesignPattern;
+package com.important.DesignPattern.factory;
 
-public class TestFactoryMethod {
+/**
+ * 工厂方法模式
+ */
+public class FactoryMethod {
 	public static void main(String[] args) {
 		IWorkFactory studentWorkFactory = new StudentWorkFactory();
 		studentWorkFactory.getWork().doWork();
