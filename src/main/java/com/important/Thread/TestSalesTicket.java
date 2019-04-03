@@ -17,15 +17,9 @@ public class TestSalesTicket {
 		
 		//只new了一个对象，所以只有100张票
 		Window1 w = new Window1();
-		Thread t1 = new Thread(w);
-		Thread t2 = new Thread(w);
-		Thread t3 = new Thread(w);
-		t1.setName("窗口1：");
-		t2.setName("窗口2：");
-		t3.setName("窗口3：");
-		t1.start();
-		t2.start();
-		t3.start();
+		for (int i = 0; i < 3; i++) {
+			new Thread(w).start();
+		}
 	}
 
 }
@@ -37,7 +31,7 @@ class Window extends Thread {
 	public void run() {
 		while (true) {
 			if (ticket > 0) {
-				System.out.println(Thread.currentThread().getName() + ":" + "售票：" + ticket--);
+				System.out.println(Thread.currentThread().getName() + "售票：" + ticket--);
 			} else {
 				break;
 			}
@@ -46,12 +40,19 @@ class Window extends Thread {
 }
 
 class Window1 implements Runnable {
+	
 	int ticket = 100;
+	
 	@Override
 	public void run() {
 		while (true) {
 			if (ticket > 0) {
-				System.out.println(Thread.currentThread().getName() + ":" + "售票：" + ticket--);
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println(Thread.currentThread().getName() + "售票：" + ticket--);
 			} else {
 				break;
 			}
