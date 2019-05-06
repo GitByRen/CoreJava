@@ -20,6 +20,19 @@ public class TestOptional {
      *  flatMap(Function mapper):与 map 类似，要求返回值必须是Optional
      */
 	@Test
+	public void test5() {
+		Employee employee = new Employee("张三", 18);
+		Optional<Employee> employeeOpt = Optional.ofNullable(employee);
+		employeeOpt.ifPresent(e -> {
+			// ...
+		});
+		
+		employeeOpt.orElseGet(() -> {
+			return null;
+		});
+	}
+	
+	@Test
 	public void test4() {
 		Optional<Employee> op = Optional.ofNullable(new Employee("张三", 18));
 		Optional<String> map = op.map((e) -> e.getName());
