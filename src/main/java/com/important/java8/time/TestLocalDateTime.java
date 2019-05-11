@@ -31,7 +31,7 @@ public class TestLocalDateTime {
 		System.out.println(format2);
 		
 		// 日期转时间
-		LocalDateTime parse = ldt.parse(format2, dtf2);
+		LocalDateTime parse = LocalDateTime.parse(format2, dtf2);
 		System.out.println(parse);
 	}
 	
@@ -81,6 +81,9 @@ public class TestLocalDateTime {
 		System.out.println(between2.getMonths());
 		System.out.println(between2.getDays());
 		
+		// 计算相差天数
+		System.out.println(ld2.toEpochDay() - ld1.toEpochDay());
+		
 	}
 	
 	
@@ -113,6 +116,9 @@ public class TestLocalDateTime {
 		// 减
 		LocalDateTime minusHours = ldt.minusHours(2);
 		System.out.println(minusHours);
+		
+		// 比较：返回boolean
+		System.out.println(ldt2.isBefore(ldt));
 		
 		// 星期
 		System.out.println(ldt.getMonth());

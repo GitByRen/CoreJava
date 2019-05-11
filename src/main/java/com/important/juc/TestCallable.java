@@ -25,7 +25,7 @@ public class TestCallable {
 		
 		// 2.接收线程运算后的结果
 		try {
-			// FutureTask可用于闭锁
+			// FutureTask可用于闭锁，此方法会阻塞主线程直到获取‘将来’结果
 			Integer sum = result.get();
 			System.out.println(sum);
 		} catch (InterruptedException e) {
