@@ -1,4 +1,4 @@
-package com.important.juc;
+package com.important.juc.jmm;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -32,13 +32,13 @@ public class TestAtomicDemo {
 
 class AtomicDemo implements Runnable {
 
-//	private int serialNumber = 0;
-	private AtomicInteger serialNumber = new AtomicInteger();
+	private int serialNumber = 0;
+//	private AtomicInteger serialNumber = new AtomicInteger();
 
 	@Override
 	public void run() {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -47,6 +47,7 @@ class AtomicDemo implements Runnable {
 	}
 
 	public int getSerialNumber() {
-		return serialNumber.getAndIncrement();
+		return serialNumber++;
+//		return serialNumber.getAndIncrement();
 	}
 }

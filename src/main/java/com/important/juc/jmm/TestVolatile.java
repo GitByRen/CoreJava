@@ -1,4 +1,4 @@
-package com.important.juc;
+package com.important.juc.jmm;
 
 /**
  * volatile：当多个线程进行操作共享数据时，可以保证内存中的数据可见。

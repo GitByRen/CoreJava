@@ -1,4 +1,4 @@
-package com.important.juc;
+package com.important.juc.jmm;
 
 /**
  * 模拟CAS算法
