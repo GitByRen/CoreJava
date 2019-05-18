@@ -2,7 +2,21 @@ package com.important.juc.jmm;
 
 /**
  * 模拟CAS算法
- *
+ * 
+ * AtomicInteger.class：
+ * public final int getAndIncrement() {
+ *    return U.getAndAddInt(this, VALUE, 1);
+ * }
+ * 
+ * Unsafe.class：
+ * public final int getAndAddInt(Object o, long offset, int delta) {
+ *	    int v;
+ *	    do {
+ *	        v = getIntVolatile(o, offset);
+ *	    } while (!weakCompareAndSetInt(o, offset, v, v + delta));
+ *	    return v;
+ *	}
+ * 
  */
 public class TestCompareAndSwap {
 
@@ -10,13 +24,10 @@ public class TestCompareAndSwap {
 		final CompareAndSwap cas = new CompareAndSwap();
 
 		for (int i = 0; i < 10; i++) {
-			new Thread(new Runnable() {
-				@Override
-				public void run() {
-					int expectedValue = cas.get();
-					boolean compareAndSet = cas.compareAndSet(expectedValue, (int) (Math.random()) * 101);
-					System.out.println(compareAndSet);
-				}
+			new Thread(() -> {
+				int expectedValue = cas.get();
+				boolean compareAndSet = cas.compareAndSet(expectedValue, (int) (Math.random()) * 101);
+				System.out.println(compareAndSet);
 			}).start();
 		}
 	}
