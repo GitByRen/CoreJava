@@ -3,6 +3,9 @@ package com.important.juc.jmm;
 /**
  * 模拟CAS算法
  * 
+ * @param this：当前对象
+ * @param VALUE：内存地址偏移量
+ * @param 1：要加的数
  * AtomicInteger.class：
  * public final int getAndIncrement() {
  *    return U.getAndAddInt(this, VALUE, 1);
@@ -16,6 +19,8 @@ package com.important.juc.jmm;
  *	    } while (!weakCompareAndSetInt(o, offset, v, v + delta));
  *	    return v;
  *	}
+ * 
+ * 注意：weakCompareAndSetInt方法的执行是连续的，在执行过程中不允许被中断
  * 
  */
 public class TestCompareAndSwap {
