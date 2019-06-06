@@ -1,4 +1,4 @@
-package com.important.juc;
+package com.important.juc.ccs;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -42,24 +42,20 @@ class LatchDemo implements Runnable {
 
 	@Override
 	public void run() {
-		
-		synchronized (this) {
-			try {
-				for (int i = 0; i < 50; i++) {
-					if (i % 4 == 0) {
-						System.out.println(Thread.currentThread().getName() + ":" + i);
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
+		try {
+			for (int i = 0; i < 50; i++) {
+				if (i % 4 == 0) {
+					System.out.println(Thread.currentThread().getName() + ":" + i);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
 					}
 				}
-			} finally {
-				countDownLatch.countDown();
 			}
+		} finally {
+			countDownLatch.countDown();
 		}
-		
 	}
 
 }
