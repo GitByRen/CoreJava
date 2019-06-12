@@ -1,6 +1,6 @@
-package com.important.juc;
+package com.important.juc.queue;
 
-public class TestProductorAndConsumer {
+public class TestSynProduConsumer {
 
 	public static void main(String[] args) {
 		Clerk clerk = new Clerk();

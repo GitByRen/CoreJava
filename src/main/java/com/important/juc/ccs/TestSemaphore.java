@@ -13,15 +13,19 @@ public class TestSemaphore {
 		for (int i = 1; i <= 6; i++) {
 			new Thread(() -> {
 				try {
+					System.out.println(Thread.currentThread().getName() + "进来了");
 					semaphore.acquire();
 					System.out.println(Thread.currentThread().getName() + "抢到车位");
-					TimeUnit.SECONDS.sleep(1);
+					TimeUnit.SECONDS.sleep(3);
 					System.out.println(Thread.currentThread().getName() + "停车3秒后离开车位");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
 					semaphore.release();
 				}
+				
+				System.out.println("获取当前可用的许可证数量：release：" + semaphore.availablePermits());
+				
 			}, String.valueOf(i)).start();
 		}
 		
