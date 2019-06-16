@@ -19,8 +19,10 @@ public class TestCallable {
 		CallableDemo cd = new CallableDemo();
 		
 		// 1.Callable需要FutureTask实现类的支持
-		FutureTask<Integer> result = new FutureTask<Integer>(cd);
+		FutureTask<Integer> result = new FutureTask<>(cd);
 		
+		new Thread(result).start();
+		// 第二个线程不会有结果
 		new Thread(result).start();
 		
 		// 2.接收线程运算后的结果

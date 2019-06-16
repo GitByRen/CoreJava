@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
  * 				|--ScheduledThreadPoolExecutor ：继承 ThreadPoolExecutor， 实现 ScheduledExecutorService
  * 
  * 三、工具类 : Executors
- * ExecutorService newFixedThreadPool() : 创建固定大小的线程池
- * ExecutorService newCachedThreadPool() : 缓存线程池，线程池的数量不固定，可以根据需求自动的更改数量
+ * ExecutorService newFixedThreadPool() : 创建固定大小的线程池，执行长期的任务，性能好
+ * ExecutorService newCachedThreadPool() : 缓存线程池，线程池的数量不固定，可以根据需求自动的更改数量，适用于很多短期的异步的小程序
  * ExecutorService newSingleThreadExecutor() : 创建单个线程池。线程池中只有一个线程
  * 
  * ScheduledExecutorService newScheduledThreadPool() : 创建固定大小的线程，可以延迟或定时的执行任务。
@@ -27,12 +27,17 @@ public class TestThreadPool {
 
 		ThreadPoolDemo tpd = new ThreadPoolDemo();
 
-		for (int i = 0; i < 5; i++) {
-//			fixedThreadPool.submit(tpd);
-			fixedThreadPool.execute(tpd);
+		try {
+			for (int i = 0; i < 5; i++) {
+//				fixedThreadPool.submit(tpd);
+				fixedThreadPool.execute(tpd);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			fixedThreadPool.shutdown();
 		}
 		
-		fixedThreadPool.shutdown();
 	}
 
 }
