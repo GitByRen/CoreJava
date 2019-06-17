@@ -31,8 +31,15 @@ public class ThreadPoolDetail {
 
 //		characteristic4();
 		
-		
+		// 获取CPU核心数
+		System.out.println(Runtime.getRuntime().availableProcessors());
 
+		/**
+		 *  cpu密集：该任务需要大量的运算，而没有阻塞；公式：cpu核数+1
+		 *  io密集：
+		 *  ①不是一直在执行任务，应配置尽可能多的线程；公式：cpu核数*2
+		 *  ②该任务需要大量的IO，即大量的阻塞，故需要多配置线程数；公式：cpu核数 / (1 - 阻塞系数) 阻塞系数在0.8-0.9之间
+		 */
 	}
 
 	/**
