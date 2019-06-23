@@ -35,6 +35,8 @@ public class ThreadPoolDetail {
 		System.out.println(Runtime.getRuntime().availableProcessors());
 
 		/**
+		 * 如何配置最佳线程数？
+		 * 
 		 *  cpu密集：该任务需要大量的运算，而没有阻塞；公式：cpu核数+1
 		 *  io密集：
 		 *  ①不是一直在执行任务，应配置尽可能多的线程；公式：cpu核数*2

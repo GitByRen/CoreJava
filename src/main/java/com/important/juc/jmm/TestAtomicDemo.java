@@ -40,8 +40,6 @@ class AtomicDemo implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println(Thread.currentThread().getName() + "-before:" + serialNumber);
-
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
