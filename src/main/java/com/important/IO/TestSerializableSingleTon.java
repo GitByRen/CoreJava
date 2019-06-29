@@ -79,7 +79,7 @@ public class TestSerializableSingleTon {
 // 反射在通过newInstance创建对象时，会检查该类是否enum修饰，如果是则抛出异常，反射失败，详见Constructor.class的newInstance方法
 
 /*
-反编译后是static和final的，所以线程安全
+反编译后是static和final的，并且在静态代码块中初始化，所以线程安全
 public static final T SPRING;
 public static final T SUMMER;
 public static final T AUTUMN;
