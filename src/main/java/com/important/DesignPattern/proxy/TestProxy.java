@@ -1,4 +1,4 @@
-package com.important.DesignPattern.Proxy;
+package com.important.DesignPattern.proxy;
 
 /**
  * 静态代理
