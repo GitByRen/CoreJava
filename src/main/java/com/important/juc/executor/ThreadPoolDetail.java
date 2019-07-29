@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * corePoolSize： 线程池核心线程数
  * maximumPoolSize：线程池最大数
  * keepAliveTime： 空闲线程存活时间，表示线程没有任务执行时最多保持多久时间会终止，然后线程池的数目维持在corePoolSize 大小；
- * unit：时间单位
+ * unit：时间单位x
  * workQueue： 线程池所使用的缓冲队列
  * threadFactory：线程池创建线程使用的工厂
  * handler：线程池对拒绝任务的处理策略
