@@ -14,6 +14,7 @@
 		<com.important.c3p0>0.9.5.3</com.important.c3p0>
 		<com.important.dbutils>1.7</com.important.dbutils>
 		<com.important.jedis>2.9.0</com.important.jedis>
+		<com.important.cglib>3.2.12</com.important.cglib>
 	</properties>
 
 	<dependencies>
@@ -49,11 +50,19 @@
 			<version>${com.important.dbutils}</version>
 		</dependency>
 		
-	<dependency>
-	    <groupId>redis.clients</groupId>
-	    <artifactId>jedis</artifactId>
-	    <version>${com.important.jedis}</version>
-	</dependency>
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>${com.important.jedis}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>${com.important.cglib}</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

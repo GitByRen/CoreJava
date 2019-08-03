@@ -3,7 +3,6 @@ package com.important.DesignPattern.proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.lang.Object;
 
 interface Subject {
 	void action();
@@ -36,7 +35,7 @@ class MyInvocationHandler implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		// method方法的返回值是returnVal
 		Object invoke = method.invoke(obj, args);
-		return invoke;
+		return null;
 	}
 }
 
