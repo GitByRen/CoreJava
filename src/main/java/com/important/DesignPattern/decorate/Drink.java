@@ -1,5 +1,6 @@
 package com.important.DesignPattern.decorate;
 
+// 抽象构件
 public abstract class Drink {
 
 	private String des;

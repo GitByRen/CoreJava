@@ -1,5 +1,6 @@
 package com.important.DesignPattern.decorate;
 
+// 抽象装饰
 public class Decorator extends Drink {
 
 	private Drink obj;
