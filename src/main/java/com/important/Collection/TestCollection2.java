@@ -31,24 +31,19 @@ public class TestCollection2 {
 		 * 
 		 * 1.创建一个Comparator接口的类的对象
 		 */
-		Comparator com = new Comparator() {
+		Comparator<Customer> com = new Comparator<>() {
 			@Override
-			public int compare(Object o1, Object o2) {
-				if (o1 instanceof Customer && o2 instanceof Customer) {
-					Customer c1 = (Customer) o1;
-					Customer c2 = (Customer) o2;
-					int i = c1.getId().compareTo(c2.getId());
-					if(i == 0) {
-						return c1.getName().compareTo(c2.getName());
-					}
-					return i;
+			public int compare(Customer o1, Customer o2) {
+				int i = o1.getId().compareTo(o2.getId());
+				if (i == 0) {
+					return o1.getName().compareTo(o2.getName());
 				}
-				return 0;
+				return i;
 			}
 		};
-		
-		//2.将此对象作为形参传递给TreeSet
-		TreeSet set = new TreeSet(com);
+
+		// 2.将此对象作为形参传递给TreeSet
+		TreeSet<Customer> set = new TreeSet<>(com);
 		set.add(new Customer("AA", 1002));
 		set.add(new Customer("BB", 1001));
 		set.add(new Customer("DD", 1008));
@@ -72,7 +67,7 @@ public class TestCollection2 {
 		 * 会报ClassCastException.
 		 * 4.当Comparable比较方式和Comparator比较方式同时存在时，以Comparator的比较方式为主；
 		 */
-		Set set = new TreeSet<>();
+		Set<Person> set = new TreeSet<>(Person::compareTo);
 		set.add(new Person("BB", 24));
 		set.add(new Person("EE", 23));
 		set.add(new Person("FF", 22));
