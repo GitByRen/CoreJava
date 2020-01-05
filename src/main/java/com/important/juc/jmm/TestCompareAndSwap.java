@@ -15,6 +15,7 @@ package com.important.juc.jmm;
  * public final int getAndAddInt(Object o, long offset, int delta) {
  *	    int v;
  *	    do {
+ *          // 通过o和offset获取当前内存值，把他当作期望值去比较
  *	        v = getIntVolatile(o, offset);
  *	    } while (!weakCompareAndSetInt(o, offset, v, v + delta));
  *	    return v;

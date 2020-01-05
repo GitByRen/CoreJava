@@ -10,7 +10,12 @@ package com.important.Thread;
  * 而Object lock = new Object()则需要7行操作码。
  * 
  * 无论synchronized关键字加在方法上还是对象上，如果它作用的对象是非静态的，则它取得的锁是对象；
- * 如果synchronized作用的对象是一个静态方法或一个类，则它取得的锁是对类，该类所有的对象同一把锁。
+ * 如果synchronized作用的对象是一个静态方法或一个类，则锁住的是当前类的class对象
+ * 
+ * synchronized底层原理：
+ * ，一个是通过方法flags标志，一个是monitorenter和monitorexit指令操作。
+ * 
+ * 
  */
 public class TestSyncronizedTicket {
 

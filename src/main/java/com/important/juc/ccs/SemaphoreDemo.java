@@ -11,6 +11,12 @@ public class SemaphoreDemo {
 		final Thread thread1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
+				// 在这睡上三秒，结果就不一样了
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				System.out.println("产品经理规划新需求");
 				semaphore1.release();
 			}

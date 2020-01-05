@@ -3,6 +3,9 @@ package com.important.juc.ccs;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Semaphore信号量被用于控制特定资源在同一时间被访问的个数
+ */
 public class TestSemaphore {
 
 	public static void main(String[] args) {
@@ -14,6 +17,7 @@ public class TestSemaphore {
 			new Thread(() -> {
 				try {
 					System.out.println(Thread.currentThread().getName() + "进来了");
+					// 从此信号量获取一个许可
 					semaphore.acquire();
 					System.out.println(Thread.currentThread().getName() + "抢到车位");
 					TimeUnit.SECONDS.sleep(3);
@@ -21,6 +25,7 @@ public class TestSemaphore {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
+					// 释放一个许可
 					semaphore.release();
 				}
 				
