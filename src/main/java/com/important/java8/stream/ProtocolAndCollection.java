@@ -6,7 +6,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 import org.junit.Test;
 
@@ -128,7 +130,25 @@ public class ProtocolAndCollection {
             .map(Employee::getSalary)
             .reduce(Double::sum);
         System.out.println(reduce.get());
+        
+        // LongStream
+        long longSum1 = LongStream.rangeClosed(0L, 100000000L)
+                .parallel()
+                .reduce(0L, Long::sum);
+        long longSum2 = LongStream.rangeClosed(0, 100000000).parallel().sum();
+        System.out.println(longSum1);
+        System.out.println(longSum2);
     }
     
+    @Test
+    public void testParallelStream() {
+    	List<Double> empList = emps.parallelStream().map(Employee::getPrice).collect(Collectors.toList());
+    	System.out.println(empList);
+    	
+    	// 可以指定executor线程池
+    	List<CompletableFuture<Double>> empListCF = emps.stream().map(emp -> CompletableFuture.supplyAsync(emp::getPrice)).collect(Collectors.toList());
+        List<Double> empLists = empListCF.stream().map(CompletableFuture::join).collect(Collectors.toList());
+        System.out.println(empLists);
+    }
 
 }

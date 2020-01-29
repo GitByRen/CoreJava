@@ -27,7 +27,7 @@ public class ThreadPoolDetail {
 
 //		characteristic2();
 
-//		characteristic3();
+		characteristic3();
 
 //		characteristic4();
 		
@@ -120,6 +120,18 @@ public class ThreadPoolDetail {
 			System.out.println(Thread.currentThread().getName() + "----------hello world04-----------");
 		});
 
+		int size = pool.getQueue().size();
+        System.out.println("当前排队线程数：" + size);
+
+        int activeCount = pool.getActiveCount();
+        System.out.println("当前活动线程数：" + activeCount);
+
+        long completedTaskCount = pool.getCompletedTaskCount();
+        System.out.println("执行完成线程数：" + completedTaskCount);
+
+        long taskCount = pool.getTaskCount();
+        System.out.println("总线程数：" + taskCount);
+		
 		pool.shutdown();
 	}
 

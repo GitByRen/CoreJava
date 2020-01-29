@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 public class TestThreadPoolException {
 
 	public static void main(String[] args) {
-		catchException1();
+//		catchException1();
 		
 		catchException2();
 		
@@ -25,7 +25,7 @@ public class TestThreadPoolException {
 			try {
 				future.get();
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("e:" + e.getMessage());
 			}
 		}
 	}

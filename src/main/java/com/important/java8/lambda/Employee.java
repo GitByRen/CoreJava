@@ -1,5 +1,7 @@
 package com.important.java8.lambda;
 
+import java.util.Random;
+
 public class Employee {
 
     private int     id;
@@ -78,6 +80,15 @@ public class Employee {
 
     public String show() {
         return "测试方法引用！";
+    }
+    
+    public double getPrice() {
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        return new Random().nextDouble();
     }
 
     @Override
