@@ -85,8 +85,10 @@ public class TestReflection {
 		// 类加载器读取.class字节码文件将其转换成java.lang.Class类的一个实例
 		Class<Person> clazz = Person.class;
 
-		// 1.创建clazz对应的运行时类Person类的对象
-		Person p = clazz.newInstance();
+		// 1.创建clazz对应的运行时类Person类的对象，java9之后过期
+//		Person p = clazz.newInstance();
+		// java9之后
+		Person p = clazz.getDeclaredConstructor().newInstance();
 
 		// 2.通过反射调用运行时类的指定的属性
 		// 2.1 获取public的属性

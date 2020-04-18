@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * AbortPolicy：抛出RejectedExecutionException
  * DiscardPolicy：什么也不做，直接忽略
  * DiscardOldestPolicy：丢弃执行队列中最老的任务，尝试为当前提交的任务腾出位置
- * CallerRunsPolicy：直接由提交任务者执行这个任务
+ * CallerRunsPolicy：由调用者所在线程执行这个任务
  * 
  */
 public class ThreadPoolDetail {
@@ -130,7 +130,7 @@ public class ThreadPoolDetail {
         System.out.println("执行完成线程数：" + completedTaskCount);
 
         long taskCount = pool.getTaskCount();
-        System.out.println("总线程数：" + taskCount);
+        System.out.println("总任务数：" + taskCount);
 		
 		pool.shutdown();
 	}

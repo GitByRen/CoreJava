@@ -4,6 +4,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicStampedReference;
 
+/**
+ * 这样使用时reference不能超过127，否则返回false，因为直接写数字会触发装箱操作，超过127会返回新的Integer对象
+ * atomicStampedReference.compareAndSet(128, 200, atomicStampedReference.getStamp(),
+ *					atomicStampedReference.getStamp() + 1);
+ * 这样即可
+ * atomicStampedReference.compareAndSet(atomicStampedReference.getReference(), 200, atomicStampedReference.getStamp(),
+ *                  atomicStampedReference.getStamp() + 1);
+ */
 public class ABADemo {
 
 	public static void main(String[] args) {

@@ -49,4 +49,25 @@ public class TestListAndSet {
 			}).start();
 		}
 	}
+	
+	private void testRemove() {
+		// 能执行成功，只循环一次，因为remove后size变为1，hasNext会判断cursor != size后返回
+		List<String> arrayList1 = new ArrayList<String>();
+		arrayList1.add("1");
+		arrayList1.add("2");
+		for (String s : arrayList1) {
+		    if ("1".equals(s)) {
+		        arrayList1.remove(s);
+		    }
+		}
+		// 报错，在循环第二次时next方法会检查modCount和expectedModCount是否相同，然后抛出异常
+		List<String> arrayList2 = new ArrayList<String>();
+		arrayList2.add("2");
+		arrayList2.add("1");
+		for (String s : arrayList2) {
+		    if ("1".equals(s)) {
+		        arrayList2.remove(s);
+		    }
+		}
+	}
 }

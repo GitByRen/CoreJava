@@ -9,6 +9,7 @@ import net.sf.cglib.proxy.MethodProxy;
 /**
  * 1、对于不需要实现接口的类可以使用cglib代理 
  * 2、目标对象的方法如果是final/static，那么就不会拦截
+ * 3、利用ASM开源包，将代理对象类的class文件加载进来，通过修改其字节码生成子类来处理（动态生成被代理类的子类）
  */
 public class TestCglibProxy {
 	public static void main(String[] args) {

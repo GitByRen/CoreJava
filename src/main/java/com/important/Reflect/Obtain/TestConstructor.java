@@ -17,7 +17,7 @@ public class TestConstructor {
         Class clazz = Class.forName(className);
         // 创建运行时类的对象的条件?
         // 1.无参构造器 2.构造器的权限要足够
-        Object newInstance = clazz.newInstance();
+        Object newInstance = clazz.getConstructor().newInstance();
         Person p = (Person) newInstance;
         System.out.println(p);
     }
