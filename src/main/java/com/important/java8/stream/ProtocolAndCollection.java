@@ -1,12 +1,16 @@
 package com.important.java8.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TreeSet;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -149,6 +153,19 @@ public class ProtocolAndCollection {
     	List<CompletableFuture<Double>> empListCF = emps.stream().map(emp -> CompletableFuture.supplyAsync(emp::getPrice)).collect(Collectors.toList());
         List<Double> empLists = empListCF.stream().map(CompletableFuture::join).collect(Collectors.toList());
         System.out.println(empLists);
+    }
+    
+    
+    @Test
+    public void testCollectMap() {
+    	// jdk1.8 value不能为null，  key不能重复，重复的话需要加第三个参数
+    	Map<Integer, Employee> collect = emps.stream().collect(Collectors.toMap(Employee::getId, Function.identity(), (oldValue, newValue) -> newValue));
+    	System.out.println(collect);
+    	
+    	ArrayList<Employee> employees = emps.stream().collect(
+                Collectors.collectingAndThen(
+                        Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Employee::getId))), ArrayList::new));
+    	System.out.println(employees);
     }
 
 }

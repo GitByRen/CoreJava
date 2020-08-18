@@ -18,14 +18,10 @@ import org.junit.Test;
 public class TestCollection3 {
 
 	/**
-	 * Map: |----HashMap 
-	 *      |----LinkedHashMap 
-	 *      |----TreeMap 
-	 *      |----HashTable
-	 * 			|----Properties：常用来处理属性文件
+	 * Map: |----HashMap |----LinkedHashMap |----TreeMap |----HashTable
+	 * |----Properties：常用来处理属性文件
 	 * 
-	 * 1.key不可以重复,value可以重复
-	 * 2.key使用set来存的，不可重复
+	 * 1.key不可以重复,value可以重复 2.key使用set来存的，不可重复
 	 * 3.一个key-value对是一个Entry,所有的Entry是用Set来存放的，也是不可重复的。
 	 * 4.向HashMap中添加元素时，会调用key所在类的equals()方法，判断两个key是否相同， 若相同只能添加进后添加的那个元素。
 	 */
@@ -55,10 +51,45 @@ public class TestCollection3 {
 			System.out.println(entry.getKey());
 			System.out.println(entry.getValue());
 		}
-		
+
 		System.out.println("*******************************************");
-		
+
 		map.entrySet().stream().forEach(System.out::println);
+	}
+
+	@Test
+	public void testHashMap() {
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("1", 1);
+		map.put("2", 2);
+		map.put("3", 3);
+		// key存在返回value
+		Integer integer = map.computeIfAbsent("3", key -> Integer.valueOf(4));
+		// key不存在执行函数存入
+		Integer integer1 = map.computeIfAbsent("129", key -> Integer.valueOf(129));
+		System.out.println(integer);
+		System.out.println(integer1);
+		System.out.println(map.toString());
+		
+
+//		利用 Map 的 computeIfAbsent 方法，可以保证获取到的对象非空，从而避免了不必要的空判断和重新设置值。
+//		普通：
+//		Map<Long, List<UserDO>> roleUserMap = new HashMap<>();
+//		for (UserDO userDO : userDOList) {
+//		    Long roleId = userDO.getRoleId();
+//		    List<UserDO> userList = roleUserMap.get(roleId);
+//		    if (Objects.isNull(userList)) {
+//		        userList = new ArrayList<>();
+//		        roleUserMap.put(roleId, userList);
+//		    }
+//		    userList.add(userDO);
+//		}
+//		精简：
+//		Map<Long, List<UserDO>> roleUserMap = new HashMap<>();
+//		for (UserDO userDO : userDOList) {
+//		    roleUserMap.computeIfAbsent(userDO.getRoleId(), key -> new ArrayList<>())
+//		        .add(userDO);
+//		}
 	}
 
 	@Test
@@ -105,7 +136,7 @@ public class TestCollection3 {
 		}
 
 	}
-	
+
 	@Test
 	public void test3() {
 		Properties pros = new Properties();
@@ -120,6 +151,5 @@ public class TestCollection3 {
 			e.printStackTrace();
 		}
 	}
-	
-}
 
+}
