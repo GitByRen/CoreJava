@@ -8,7 +8,7 @@
 
 	<properties>
 		<com.important.junit>4.12</com.important.junit>
-		<com.important.mysql>5.1.46</com.important.mysql>
+		<com.important.mysql>8.0.28</com.important.mysql>
 		<com.important.beanutils>1.9.3</com.important.beanutils>
 		<com.important.dbcp>2.2.0</com.important.dbcp>
 		<com.important.c3p0>0.9.5.3</com.important.c3p0>
